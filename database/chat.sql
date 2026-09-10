@@ -28,10 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `messages` (
-  `msg_id` int(20) NOT NULL,
+  `msg_id` int(20) NOT NULL AUTO_INCREMENT,
   `incoming_msg_id` varchar(255) NOT NULL,
   `outgoing_msg_id` varchar(255) NOT NULL,
-  `msg` varchar(1000) NOT NULL
+  `msg` varchar(1000) NOT NULL,
+  PRIMARY KEY (`msg_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -45,14 +46,15 @@ CREATE TABLE `messages` (
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `unique_id` varchar(200) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `img` varchar(400) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `status` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -66,14 +68,12 @@ CREATE TABLE `users` (
 --
 -- Indexes for table `messages`
 --
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`msg_id`);
+
 
 --
 -- Indexes for table `users`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -82,14 +82,11 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for table `messages`
 --
-ALTER TABLE `messages`
-  MODIFY `msg_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
